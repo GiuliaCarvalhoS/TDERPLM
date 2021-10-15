@@ -93,12 +93,36 @@ pBicondicionalQ(x, y)
 
 
 
+# def exibir(matriz, tabela):
+  
+#   for item in tabela:
+      
+#     for linha in range(8):
+#       print(f"{item:<8}: {matriz[linha]}")  
+#       linha += 1
+#       break
+     
+      
+
+# exibir(x, y)
+
+
+
+
+
 def exibir(matriz, tabela):
+  linha=0
+  
   for item in tabela:
-    
-    for linha in matriz:
-      print(f"{item:<8}: {linha}")  
+
+    while linha < 8:
+      print(f"{item:<8}: {matriz[linha]}")  
+      linha += 1
       break
+
+      
+   
+      
 
 exibir(x, y)
 
@@ -107,16 +131,59 @@ exibir(x, y)
     #print(linha)
   
   
-#exibirMAtriz(x)
+# #exibirMAtriz(x)
 
 
-variavelUnica = input("Digite uma implicação com dois conectivos: ")
-if varivelUnica.find("->") 
-  def()
+# variavelUnica = input("Digite uma implicação com dois conectivos: ")
+
+# if variavelUnica.find("->") != -1:
+ 
+#   seta = variavelUnica.split("->")
+#   print
+  
+  
     
-seta = variavelUnica.split("->")
-duoSeta= variavelUnica.split("<->")
-sinalE= variavelUnica.split("v")
-sinalOu= variavelUnica.split("^")
-print(seta)
+# seta = variavelUnica.split("->")
+# # duoSeta= variavelUnica.split("<->")
+# # sinalE= variavelUnica.split("v")
+# # sinalOu= variavelUnica.split("^")
+# # print(seta)
+
+
+
+
+
+
+
+def implication (conective1, conective2, matriz = x, table=y):
+	p=0
+	q=1
+	Np=2
+	Nq=2
+	result=[]
+  
+
+  
+	
+	result1=	matriz[0]
+
+	result2=	matriz[1]
+  
+
+	for i in result1:
+		for l in  result2:
+		 if(i==l):
+			 result.append(True)
+       break
+		 else:
+			 result.append(False)
+        
+  
+
+	return result
+
+
+resultado = implication("p","q")
+
+print(resultado)
 
