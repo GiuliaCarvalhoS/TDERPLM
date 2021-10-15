@@ -159,7 +159,7 @@ def implication (conective1, conective2, matriz = x, table=y):
 	p=0
 	q=1
 	Np=2
-	Nq=2
+	Nq=3
 	result=[]
   
 
@@ -169,19 +169,22 @@ def implication (conective1, conective2, matriz = x, table=y):
 
 	result2=	matriz[1]
   
+  if result1[0] == result2[0]:
+    result.append(True)
 
-	for i in result1:
-		for l in  result2:
-		 if(i==l):
-			 result.append(True)
-       break
-		 else:
-			 result.append(False)
-        
-  
+  elif result1[1] == result2[1]:
+    result.append(True)
+
+  elif result1[2] == result2[2]:
+    result.append(True)
+
+  elif result1[3] == result2[3]:
+    result.append(True)
+  else:
+    result.append(False)
+    
 
 	return result
-
 
 resultado = implication("p","q")
 
