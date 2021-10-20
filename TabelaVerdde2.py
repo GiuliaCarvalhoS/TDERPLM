@@ -1,7 +1,6 @@
 # class TabelaVerdade:
 from tabulate import tabulate
 
-
 def atribuicaoValoresTabela():
     tabela = ["p", "q", "~p", "~q"]
     matriz = [[True, True, False, False],
@@ -18,7 +17,6 @@ x = atribuicaoValoresTabela()["matriz"]
 # "Instanciando" a tabela
 y = atribuicaoValoresTabela()["tabela"]
 
-
 # Operação a->b (Simplificando = não a OU b)
 def pImplicaQ(matriz, tabela):
     primeiroItem4 = matriz[2][0] or matriz[1][0]  # Primeiro item de ~a OU b
@@ -33,7 +31,6 @@ def pImplicaQ(matriz, tabela):
     tabela.append("p -> q")
 
     return {"matriz": matriz, "tabela": tabela}
-
 
 # Operação a ^ b (a E b)
 def pEQ(matriz, tabela):
@@ -66,7 +63,6 @@ def pOuQ(matriz, tabela):
 
     return {"matriz": matriz, "tabela": tabela}
 
-
 # Operação a <-> b (Simplificando: (NÃO a OU b) E (NÃO b OU a))
 def pBicondicionalQ(matriz, tabela):
     primeiroItem7 = ((matriz[2][0] or matriz[1][0]) and (matriz[3][0] or matriz[0][0]))
@@ -83,23 +79,29 @@ def pBicondicionalQ(matriz, tabela):
     return {"matriz": matriz, "tabela": tabela}
 
 
-print("-" * 10)
+
 pImplicaQ(x, y)
-print(x)
-print(y)
-print(tabulate(x,headers=[y]))
 
-print("-" * 10)
 pEQ(x, y)
-print(x)
-print(y)
 
-print("-" * 10)
 pOuQ(x, y)
-print(x)
-print(y)
 
-print("-" * 10)
 pBicondicionalQ(x, y)
-print(x)
-print(y)
+
+
+
+
+def exibir(matriz, tabela):
+    linha = 0
+
+    for item in tabela:
+
+        while linha < 8:
+            print(f"{item:<8}: {matriz[linha]}")
+            linha += 1
+            break
+
+
+exibir(x, y)
+
+
