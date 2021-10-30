@@ -27,6 +27,7 @@ parenteses = []
 for c in sentencadividida:
     if c == " ":
         sentencadividida.remove(c)
+    
 
 #encontrando a posição dos parênteses
 pos1 = sentencadividida.index("(")
@@ -68,29 +69,33 @@ for j in parenteses:
             break
     # tamanho igual a 5, significa que pode haver 2 negações (~) ou uma implicação (->) e uma negação ou uma bicondicionaç (<->)
     elif len(parenteses) == 5:
-        # verificnado se há duas negações e se não há nenhuma implicação
-        if parenteses.index("~") == 0 and parenteses.index(">") == -1:
-            parentesesconectivo1 = parenteses[0] + parenteses[1]
-            parentesesimplicacao = parenteses[2]
-            parentesesconectivo2 = parenteses[3] + parenteses[4]
-            break
-        # verificnado se a negação no primeiro conectivo e uma implicação
-        elif parenteses.index("~") == 0 and parenteses.index(">") > -1:
-            parentesesconectivo1 = parenteses[0] + parenteses[1]
-            parentesesimplicacao = parenteses[3]
-            parentesesconectivo2 = parenteses[4]
-            break
-        # verificnado se a negação no segundo conectivo e uma implicação
-        elif parenteses.index("~") == 3 and parenteses.index(">") > -1:
-            parentesesconectivo1 = parenteses[0]
-            parentesesimplicacao = parenteses[2]
-            parentesesconectivo2 = parenteses[3] + parenteses [4]
-            break
+        
+        if "~" in parenteses:
+            # verificnado se há duas negações e se não há nenhuma implicação
+            if parenteses.index("~") == 0 and parenteses.index(">") == -1:
+                parentesesconectivo1 = parenteses[0] + parenteses[1]
+                parentesesimplicacao = parenteses[2]
+                parentesesconectivo2 = parenteses[3] + parenteses[4]
+                break
+            # verificnado se a negação no primeiro conectivo e uma implicação
+            elif parenteses.index("~") == 0 and parenteses.index(">") > -1:
+                parentesesconectivo1 = parenteses[0] + parenteses[1]
+                parentesesimplicacao = parenteses[3]
+                parentesesconectivo2 = parenteses[4]
+                break
+            # verificnado se a negação no segundo conectivo e uma implicação
+            elif parenteses.index("~") == 3 and parenteses.index(">") > -1:
+                parentesesconectivo1 = parenteses[0]
+                parentesesimplicacao = parenteses[2]
+                parentesesconectivo2 = parenteses[3] + parenteses [4]
+                break
         #caso não encontre implicação ou negação, há então uma bicondicional
         else:
+            
             parentesesconectivo1 = parenteses[0]
             parentesesimplicacao = parenteses[1]
             parentesesconectivo2 = parenteses[4]
+            
             break
     # tamanho igual a 5, significa que pode haver 2 negações (~) e uma implicação (->) ou uma negação e uma bicondicional (<->)
     elif len(parenteses) == 6:
@@ -134,9 +139,13 @@ for i in sentencadividida:
         sentencaconectivo1 = i
 
 #verificando a sentença que está fora do parenteses em relação as implicações
+
 for c in sentencadividida:
+    if c == "-":
+        sentencadividida.remove(c)
     if c == "<":
         sentencaimplicacao = c
+
     elif c == ">":
         sentencaimplicacao = c
     elif c == "~":
@@ -145,7 +154,8 @@ for c in sentencadividida:
         else:
             sentencaimplicacao = sentencadividida[2]
     else:
-        sentencaimplicacao = sentencadividida[1]
+
+        sentencaimplicacao = sentencadividida[0]
 
 
 def exercicio9(sentenca,parenteses1, parentesesimplicacao, parenteses2, conectivo1, implicacao, matriz, tabela, pos1):
@@ -206,6 +216,7 @@ def exercicio9(sentenca,parenteses1, parentesesimplicacao, parenteses2, conectiv
                 resultadoparenteses.append((matriz[0][i] or not matriz[0][i]) and (matriz[0][i] or not matriz[0][i]))
                 i += 1
     elif parenteses1 == "p" and parenteses2 == 'q':
+        
         if parentesesimplicacao == 'v':
             for c in matriz[0]:
                 resultadoparenteses.append(matriz[0][i] or matriz[1][i])
@@ -219,6 +230,7 @@ def exercicio9(sentenca,parenteses1, parentesesimplicacao, parenteses2, conectiv
                 resultadoparenteses.append(not matriz[0][i] or matriz[1][i])
                 i += 1
         elif parentesesimplicacao == '<':
+            
             for c in matriz[0]:
                 resultadoparenteses.append((not matriz[0][i] or matriz[1][i]) and (not matriz[1][i] or matriz[0][i]))
                 i += 1
