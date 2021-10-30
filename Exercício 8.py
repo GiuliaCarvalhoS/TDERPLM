@@ -371,7 +371,7 @@ def exercio8(sentenca, conectivo1, implicacao, conectivo2, matriz, tabela):
 def exibir(matriz, tabela):
     linha = 0
     for item in tabela:
-        while linha < 8:
+        while linha < 5 :
             print(f"{item:<8}: {matriz[linha]}")
             linha += 1
             break
