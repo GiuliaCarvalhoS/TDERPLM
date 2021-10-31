@@ -1,5 +1,7 @@
-# class TabelaVerdade:
-import collections
+#Alunos:Lucas Bottega, Giulia Silva, Andre Defino, Fernando Dias
+#EXERCICIOS 4 ao 7
+class TabelaVerdade:
+
 
 def atribuicaoValoresTabela():
     tabela = ["p", "q", "~p", "~q"]
